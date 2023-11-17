@@ -1,508 +1,280 @@
-@charset "utf-8";
-/* CSS Document */
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('inputCNPJ').addEventListener('input', function (e) {
+    var valor = e.target.value.replace(/\D/g, '');
+    var formatado = '';
 
-/* No início do seu arquivo CSS */
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    // Primeiro bloco de números
+    formatado += valor.substr(0, 2);
 
-.tela {
-    display: flex; /* Isso alinhará as divs lado a lado */
-    align-items: start; /* Isso alinhará as divs ao topo */
-    width: 100%; /* Defina a largura do container para preencher a tela ou o valor desejado */
-}
-
-.header {
-    height: 84px; /* Define a altura do header */
-    display: flex; /* Ativa Flexbox */
-    align-items: center; /* Alinha itens verticalmente ao centro */
-    background-color: #fff; /* Cor de fundo do header (opcional) */
-    width: 1152px;
-    justify-content: space-between;
-}
-
-.pagina {
-    width: 1152px;
-    justify-content: center;
-}
-
-.config {
-    width: 240px;
-    justify-content: center;
-    margin-left: 40px;
-}
-
-input {
-    border: none;
-    background-color: transparent;
-}
-
-.menu-paginas {
-    justify-content: flex-end;
-    align-items: center;
-    gap: 19px;
-    display: flex;
-}
-
-.paginas-opcoes {
-    color: #1351B4;
-    font-size: 15px;
-    font-family: 'Raleway';
-    font-weight: 400;
-    white-space: nowrap;
-}
-
-.menu-extras {
-    margin-left: 30px;
-    margin-right: 30px;
-    width: 54px;
-    justify-content: space-between;
-}
-
-.usuario {
-    height: 32px;
-    align-items: center;
-    gap: 9px;
-    display: flex;
-    cursor: pointer;
-}
-
-.usuario-nome {
-    color: #636363;
-    font-size: 14px;
-    font-family: 'Raleway';
-    font-weight: 700;
-    white-space: nowrap;
-}
-
-.linha1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 58px;
-    gap: 564px;
-}
-
-.receita {
-    color: #333333;
-    display: flex;
-    gap: 9px;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    font-family: 'Raleway';
-    font-weight: 400;
-}
-
-.pesquisa {
-    width: 364px;
-    height: 56px;
-    border-radius: 8px;
-    background: #EDEDED;
-    align-items: center;
-    display: flex;
-    padding-right: 20px;
-    justify-content: space-between;
-}
-
-.pesquisa-texto {
-    color: #333333;
-    font-size: 16px;
-    font-family: 'Raleway';
-    font-style: italic;
-    font-weight: 400;
-    margin-left: 33px;
-}
-
-.linha2 {
-    display: flex;
-    align-items: center;
-    margin-top: 9px;
-    gap: 12px;
-    font-size: 14px;
-    font-family: 'Raleway';
-    height: 56px;
-}
-
-.divisoria {
-    height: 1px;
-    width: 100%;
-    background-color: #E6E6E6; /* Cor da divisória */
-    margin-right: 20px; /* Distância desejada da borda direita */
-}
-
-.empresa {
-    height: 174px;
-    justify-content: center;
-    align-items: center;
-    margin-top: 54px;
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.empresa-rs {
-    color: #1351B4;
-    font-size: 32px;
-    font-family: 'Raleway';
-    font-weight: 700;
-    text-transform: uppercase;
-    text-align: center;
-    font-feature-settings: 'pnum' on, 'lnum' on;
-    width: 100%;
-}
-
-.dados {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 9px;
-    gap: 16px;
-    width: 100%;
-}
-
-.natureza-juridica {
-    text-align: right;
-    color: #1351B4;
-    font-size: 18px;
-    font-family: 'Raleway';
-    font-weight: 400;
-    font-feature-settings: 'pnum' on, 'lnum' on;
-}
-
-.cnpj {
-    text-align: left;
-    font-size: 18px;
-    font-family: 'Raleway';
-    font-weight: 700;
-    font-feature-settings: 'pnum' on, 'lnum' on;
-	color: #1351B4;
-}
-
-.area-cards {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    margin-bottom: 40px;
-    gap: 20px;
-}
-
-.card {
-    height: 218px;
-    width: 218px;
-    background: #F2F2F2;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.20);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
-
-.card-tipo {
-    display: inline-flex;
-    flex-direction: column;
-    gap: 10px;
-    position: absolute;
-    align-items: center;
-    margin-top: 24px;
-}
-
-.card-titulo {
-    color: #0C326F;
-    font-size: 16px;
-    font-family: 'Raleway';
-    font-weight: 600;
-    text-align: center;
-}
-
-.card-conteudo {
-    height: 110px;
-    justify-content: center;
-    gap: 7px;
-    display: inline-flex;
-    flex-direction: column;
-    position: absolute;
-    top: 105px;
-}
-
-.card-info {
-    color: #0C326F;
-    font-size: 16px;
-    font-family: 'Raleway';
-    font-weight: 700;
-    text-transform: uppercase;
-    text-align: center;
-    font-feature-settings: 'pnum' on, 'lnum' on;
-}
-
-.material-switch {
-    position: relative;
-    display: inline-block;
-    width: 40px; /* Largura do switch */
-    height: 24px; /* Altura do switch */
-    padding-left: 8px;
-    padding-right: 4px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-}
-
-.material-switch input {
-    display: none;
-}
-
-.material-slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #fff; /* Cor de fundo inicial */
-    border: 2px solid #606060; /* Borda */
-    border-radius: 16px;
-}
-
-.material-slider:before {
-    position: absolute;
-    content: "";
-    height: 16px; /* Altura do pseudo-elemento */
-    width: 16px; /* Largura do pseudo-elemento */
-    background-color: #606060; /* Cor do pseudo-elemento */
-    border-radius: 8px; /* Arredondamento do pseudo-elemento */
-    top: 6px;
-    left: 6px;
-}
-
-input:checked + .material-slider {
-    background-color: #4CAF50; /* Cor de fundo quando ativado */
-    border: none; /* Sem borda quando ativado */
-}
-
-input:checked + .material-slider:before {
-    transform: translateX(16px); /* Mover para a direita */
-    width: 24px; /* Largura do pseudo-elemento quando ativado */
-    height: 24px; /* Altura do pseudo-elemento quando ativado */
-    background-color: #fff; /* Cor do pseudo-elemento quando ativado */
-    border-radius: 12px;
-    left: 8px;
-    top: 4px;
-}
-
-.config {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 260px;
-    border-left: solid 1px;
-    border-color: #808080;
-    padding-left: 20px;
-}
-
-.config1 {
-    padding: 18px;
-    border: 1px solid #888888;
-    border-radius: 10px;
-    gap: 10px;
-    display: flex;
-    flex-direction: column;
-}
-
-.config2 {
-    padding: 18px;
-    border: 1px solid #888888;
-    border-radius: 10px;
-    gap: 10px;
-    display: flex;
-    flex-direction: column;
-}
-
-.config3 {
-    padding: 18px;
-    border: 1px solid #888888;
-    border-radius: 10px;
-    gap: 10px;
-    display: flex;
-    flex-direction: column;
-}
-
-.config4 {
-    padding: 18px;
-    border: 1px solid #888888;
-    border-radius: 10px;
-    gap: 10px;
-    display: flex;
-    flex-direction: column;
-}
-
-.config5 {
-    padding: 18px;
-    border: 1px solid #888888;
-    border-radius: 10px;
-    gap: 10px;
-    display: flex;
-    flex-direction: column;
-}
-
-.config-head {
-    font-family: 'Raleway';
-    font-feature-settings: 'pnum' on, 'lnum' on;
-    font-weight: 700;
-}
-
-.switch {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.switch-dependente {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-#switch-descricao1 {
-    font-family: 'Raleway';
-    font-feature-settings: 'pnum' on, 'lnum' on;
-    font-size: 16px;
-    font-weight: 500;
-}
-
-#switch-descricao2 {
-    font-family: 'Raleway';
-    font-feature-settings: 'pnum' on, 'lnum' on;
-    font-size: 16px;
-    font-weight: 500;
-    margin-left: 10px;
-}
-
-#switch-descricao3 {
-    font-family: 'Raleway';
-    font-feature-settings: 'pnum' on, 'lnum' on;
-    font-size: 16px;
-    font-weight: 500;
-    margin-left: 10px;
-}
-
-#switch-descricao4 {
-    font-family: 'Raleway';
-    font-feature-settings: 'pnum' on, 'lnum' on;
-    font-size: 16px;
-    font-weight: 500;
-    margin-left: 10px;
-}
-
-#switch-descricao5 {
-    font-family: 'Raleway';
-    font-feature-settings: 'pnum' on, 'lnum' on;
-    font-size: 16px;
-    font-weight: 500;
-    margin-left: 10px;
-}
-
-#switch-descricao6 {
-    font-family: 'Raleway';
-    font-feature-settings: 'pnum' on, 'lnum' on;
-    font-size: 16px;
-    font-weight: 500;
-    margin-left: 10px;
-    bottom: 40px;
-}
-
-#switch-descricao7 {
-    font-family: 'Raleway';
-    font-feature-settings: 'pnum' on, 'lnum' on;
-    font-size: 16px;
-    font-weight: 500;
-    margin-left: 10px;
-}
-
-#switch-descricao8 {
-    font-family: 'Raleway';
-    font-feature-settings: 'pnum' on, 'lnum' on;
-    font-size: 16px;
-    font-weight: 500;
-    margin-left: 10px;
-}
-
-#switch-descricao9 {
-    font-family: 'Raleway';
-    font-feature-settings: 'pnum' on, 'lnum' on;
-    font-size: 16px;
-    font-weight: 500;
-    margin-left: 10px;
+    // Segundo bloco
+    if (valor.length >= 3) {
+      formatado += '.' + valor.substr(2, 3);
     }
 
-#botao-imprimir {
-    background-color: #4CAF50; /* Cor de fundo */
-    color: white; /* Cor do texto */
-    padding: 10px 20px; /* Padding */
-    margin: 10px 0; /* Margem */
-    border: none; /* Sem borda */
-    cursor: pointer; /* Cursor como ponteiro */
-    border-radius: 5px; /* Bordas arredondadas */
-    font-weight: 600;
-    font-family: 'Raleway';
-    font-size: 16px;
-}
+    // Terceiro bloco
+    if (valor.length >= 6) {
+      formatado += '.' + valor.substr(5, 3);
+    }
 
-.ocultar-na-impressao {
-    display: none !important;
-}
+    // Quarto bloco
+    if (valor.length >= 9) {
+      formatado += '/' + valor.substr(8, 4);
+    }
 
-.config0 {
-    gap: 16px;
-    display: flex;
-    flex-direction: column;
-}
+    // Dígitos verificadores
+    if (valor.length >= 13) {
+      formatado += '-' + valor.substr(12, 2);
+    }
 
-.config-dados {
-    background-color: #EDEDED;
-    border-radius: 6px;
-    border: 1px solid #ABABAB;
-    height: 30px;
-    font-weight: 400;
-    font-family: 'Raleway';
-    font-size: 16px;
-    font-feature-settings: 'pnum' on, 'lnum' on;
-    color: #333333;
-    padding-top: 10px;
-    padding-left: 18px;
-    padding-right: 18px;
-    padding-bottom: 10px;
-}
+    e.target.value = formatado;
+  });
+});
 
-#switch-dependente-container-1 {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
+document.addEventListener('DOMContentLoaded', function () {
+    // Inicialização do controle de ícones
+    var iconesAtuais = {
+        'card-i1': 1,
+        'card-i2': 1,
+        'card-i3': 1,
+        'card-i4': 1,
+        'card-i5': 1
+    };
 
-#switch-dependente-container-2 {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-}
+    // Função para mudar o ícone
+    window.mudarSvg = function (elemento) {
+        var id = elemento.id;
+        
+        iconesAtuais[id]++;
+        if (iconesAtuais[id] > 5) {
+            iconesAtuais[id] = 1;
+        }
 
-#switch-dependente-container-3 {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-}
+        var novoIcone = "iconecard" + iconesAtuais[id] + ".svg";
+        elemento.src = novoIcone;
+    };
+});
 
-#switch-dependente-container-4 {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-}
 
-#switch-dependente-container-5 {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-}
+document.addEventListener('DOMContentLoaded', function () {
+    var linha2Switch = document.getElementById('linha2-switch');
+    var linha2 = document.querySelectorAll('.card-info')[1]; // Ajuste o índice conforme necessário para selecionar LINHA 2
+
+    // Define o estado padrão de LINHA 2 como oculto
+    linha2.style.display = 'none';
+
+    linha2Switch.addEventListener('change', function () {
+        if (this.checked) {
+            linha2.style.display = 'block'; // Mostra LINHA 2
+        } else {
+            linha2.style.display = 'none'; // Esconde LINHA 2
+        }
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    var switchPrincipal2 = document.getElementById('switch-principal-2');
+    var card2 = document.getElementById('card-2');
+    var switchDependenteContainer2 = document.getElementById('switch-dependente-container-2');
+    var switchDependente2 = document.getElementById('switch-dependente-2');
+    var card2linha2 = card2.querySelectorAll('.card-info')[1]; // Seleciona o segundo elemento .card-info que é LINHA 2
+
+    // Esconde os elementos no carregamento da página
+    card2.style.display = 'none';
+    switchDependenteContainer2.style.display = 'none';
+    card2linha2.style.display = 'none';
+
+    // Event listener para o switch-principal-2
+    switchPrincipal2.addEventListener('change', function () {
+        if (this.checked) {
+            card2.style.display = 'flex'; // ou 'block', dependendo da sua estrutura CSS
+            switchDependenteContainer2.style.display = 'flex';
+        } else {
+            card2.style.display = 'none';
+            switchDependenteContainer2.style.display = 'none';
+            switchDependente2.checked = false; // Desmarca o switch-dependente-2
+            card2linha2.style.display = 'none'; // Esconde LINHA 2
+        }
+    });
+
+    // Event listener para o switch-dependente-2
+    switchDependente2.addEventListener('change', function () {
+        if (this.checked) {
+            card2linha2.style.display = 'block'; // Mostra LINHA 2
+        } else {
+            card2linha2.style.display = 'none'; // Esconde LINHA 2
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    var switchPrincipal3 = document.getElementById('switch-principal-3');
+    var card3 = document.getElementById('card-3');
+    var switchDependenteContainer3 = document.getElementById('switch-dependente-container-3');
+    var switchDependente3 = document.getElementById('switch-dependente-3');
+    var card3linha2 = card3.querySelectorAll('.card-info')[1]; // Seleciona o segundo elemento .card-info que é LINHA 2 de card 3
+
+    // Esconde os elementos no carregamento da página
+    card3.style.display = 'none';
+    switchDependenteContainer3.style.display = 'none';
+    card3linha2.style.display = 'none';
+
+    // Event listener para o switch-principal-3
+    switchPrincipal3.addEventListener('change', function () {
+        if (this.checked) {
+            card3.style.display = 'flex'; // ou 'block', dependendo da sua estrutura CSS
+            switchDependenteContainer3.style.display = 'flex';
+        } else {
+            card3.style.display = 'none';
+            switchDependenteContainer3.style.display = 'none';
+            switchDependente3.checked = false; // Desmarca o switch-dependente-3
+            card3linha2.style.display = 'none'; // Esconde LINHA 2
+        }
+    });
+
+    // Event listener para o switch-dependente-3
+    switchDependente3.addEventListener('change', function () {
+        if (this.checked) {
+            card3linha2.style.display = 'block'; // Mostra LINHA 2
+        } else {
+            card3linha2.style.display = 'none'; // Esconde LINHA 2
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    var switchPrincipal4 = document.getElementById('switch-principal-4');
+    var card4 = document.getElementById('card-4');
+    var switchDependenteContainer4 = document.getElementById('switch-dependente-container-4');
+    var switchDependente4 = document.getElementById('switch-dependente-4');
+    var card4linha2 = card4.querySelectorAll('.card-info')[1]; // Seleciona o segundo elemento .card-info que é LINHA 2 de card 4
+
+    // Esconde os elementos no carregamento da página
+    card4.style.display = 'none';
+    switchDependenteContainer4.style.display = 'none';
+    card4linha2.style.display = 'none';
+
+    // Event listener para o switch-principal-4
+    switchPrincipal4.addEventListener('change', function () {
+        if (this.checked) {
+            card4.style.display = 'flex'; // ou 'block', dependendo da sua estrutura CSS
+            switchDependenteContainer4.style.display = 'flex';
+        } else {
+            card4.style.display = 'none';
+            switchDependenteContainer4.style.display = 'none';
+            switchDependente4.checked = false; // Desmarca o switch-dependente-4
+            card4linha2.style.display = 'none'; // Esconde LINHA 2
+        }
+    });
+
+    // Event listener para o switch-dependente-4
+    switchDependente4.addEventListener('change', function () {
+        if (this.checked) {
+            card4linha2.style.display = 'block'; // Mostra LINHA 2
+        } else {
+            card4linha2.style.display = 'none'; // Esconde LINHA 2
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    var switchPrincipal5 = document.getElementById('switch-principal-5');
+    var card5 = document.getElementById('card-5');
+    var switchDependenteContainer5 = document.getElementById('switch-dependente-container-5');
+    var switchDependente5 = document.getElementById('switch-dependente-5');
+    var card5linha2 = card5.querySelectorAll('.card-info')[1]; // Seleciona o segundo elemento .card-info que é LINHA 2 de card 5
+
+    // Esconde os elementos no carregamento da página
+    card5.style.display = 'none';
+    switchDependenteContainer5.style.display = 'none';
+    card5linha2.style.display = 'none';
+
+    // Event listener para o switch-principal-5
+    switchPrincipal5.addEventListener('change', function () {
+        if (this.checked) {
+            card5.style.display = 'flex'; // ou 'block', dependendo da sua estrutura CSS
+            switchDependenteContainer5.style.display = 'flex';
+        } else {
+            card5.style.display = 'none';
+            switchDependenteContainer5.style.display = 'none';
+            switchDependente5.checked = false; // Desmarca o switch-dependente-5
+            card5linha2.style.display = 'none'; // Esconde LINHA 2
+        }
+    });
+
+    // Event listener para o switch-dependente-5
+    switchDependente5.addEventListener('change', function () {
+        if (this.checked) {
+            card5linha2.style.display = 'block'; // Mostra LINHA 2
+        } else {
+            card5linha2.style.display = 'none'; // Esconde LINHA 2
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    // ...outros códigos...
+
+    var botaoImprimir = document.getElementById('botao-imprimir');
+    var secaoConfig = document.querySelector('.config'); // Certifique-se de que o seletor corresponda à sua classe de configuração
+
+    if (botaoImprimir && secaoConfig) {
+        botaoImprimir.addEventListener('click', function () {
+            // Adiciona uma classe para ocultar a seção de configuração
+            secaoConfig.classList.add('ocultar-na-impressao');
+
+            // Dispara a impressão
+            window.print();
+
+            // Espera um pouco antes de remover a classe (por exemplo, 500 milissegundos)
+            setTimeout(function () {
+                secaoConfig.classList.remove('ocultar-na-impressao');
+            }, 500);
+        });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    var inputNaturezaJuridica = document.getElementById('inputNaturezaJuridica');
+    var inputCNPJ = document.getElementById('inputCNPJ');
+    var displayNaturezaJuridica = document.getElementById('displayNaturezaJuridica');
+    var displayCNPJ = document.getElementById('displayCNPJ');
+
+    // Função para atualizar o conteúdo da natureza jurídica
+    inputNaturezaJuridica.addEventListener('input', function () {
+        displayNaturezaJuridica.textContent = this.value;
+    });
+
+    // Função para atualizar o conteúdo do CNPJ
+    inputCNPJ.addEventListener('input', function () {
+        displayCNPJ.textContent = this.value;
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    var perfis = {
+        perfil1: { nome: "Cruz Assessoria", imagem: "perfil1.png" },
+        perfil2: { nome: "Filgueira Assessoria", imagem: "perfil2.png" },
+        perfil3: { nome: "Banco Master", imagem: "perfil3.png" },
+        perfil4: { nome: "Banco Pine", imagem: "perfil4.png" }
+    };
+
+    var perfilAtual = 1;
+    var totalPerfis = Object.keys(perfis).length;
+
+    function trocarPerfil() {
+        perfilAtual++;
+        if (perfilAtual > totalPerfis) {
+            perfilAtual = 1;
+        }
+        
+        var perfilSelecionado = perfis['perfil' + perfilAtual];
+        document.getElementById('perfilImagem').src = perfilSelecionado.imagem;
+        document.getElementById('perfilNome').textContent = perfilSelecionado.nome;
+    }
+
+    var elementoTrocaPerfil = document.getElementById('trocaPerfil');
+    if (elementoTrocaPerfil) {
+        elementoTrocaPerfil.addEventListener('click', trocarPerfil);
+    }
+});
