@@ -9,7 +9,6 @@
 </head>
     
 <body>
-    <script src="scripts.js"></script>
     <div class="tela">
         <div class="pagina">
             <div class="header">
@@ -25,9 +24,9 @@
                     <i class="fa-solid fa-circle-half-stroke" style="color: #1351b4;"></i>
                     <img src="extras.svg" alt="Opções Extras">
                 </div>
-                <div class="usuario">
-                    <img src="foto-perfil.png" alt="Foto de Perfil">
-                    <div class="usuario-nome">Cruz Assessoria</div>
+                <div class="usuario" id="trocaPerfil">
+                    <img src="perfil1.png" alt="Foto de Perfil" id="perfilImagem">
+                    <div class="usuario-nome" id="perfilNome">Cruz Assessoria</div>
                     <img src="seta.svg" alt="Seta">
                 </div>
             </div>
@@ -50,11 +49,11 @@
             </div>
             <div class="divisoria"></div>
             <div class="empresa">
-                <img src="empresa.svg" alt="Empresa">
+                <img src="EMPRESA.svg" alt="Empresa">
                 <input class="empresa-rs" placeholder="RAZÃO SOCIAL">
                 <div class="dados">
                     <div class="natureza-juridica" id="displayNaturezaJuridica">Natureza Jurídica</div>
-                    <img src="seta3.svg" alt="SETA">
+                    <img src="SETA3.svg" alt="SETA">
                     <div class="cnpj" id="displayCNPJ">00.000.000/0000-00</div>
                 </div>
             </div>
@@ -199,5 +198,6 @@
 		<button id="botao-imprimir">EXPORTAR</button>
         </div>
     </div>
+    <script src="scripts.js"></script>
 </body>
 </html>
