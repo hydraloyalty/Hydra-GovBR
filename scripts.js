@@ -250,3 +250,31 @@ document.addEventListener('DOMContentLoaded', function () {
         displayCNPJ.textContent = this.value;
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    var perfis = {
+        perfil1: { nome: "Cruz Assessoria", imagem: "perfil1.png" },
+        perfil2: { nome: "Filgueira Assessoria", imagem: "perfil2.png" },
+        perfil3: { nome: "Banco Master", imagem: "perfil3.png" },
+        perfil4: { nome: "Banco Pine", imagem: "perfil4.png" }
+    };
+
+    var perfilAtual = 1;
+    var totalPerfis = Object.keys(perfis).length;
+
+    function trocarPerfil() {
+        perfilAtual++;
+        if (perfilAtual > totalPerfis) {
+            perfilAtual = 1;
+        }
+        
+        var perfilSelecionado = perfis['perfil' + perfilAtual];
+        document.getElementById('perfilImagem').src = perfilSelecionado.imagem;
+        document.getElementById('perfilNome').textContent = perfilSelecionado.nome;
+    }
+
+    var elementoTrocaPerfil = document.getElementById('trocaPerfil');
+    if (elementoTrocaPerfil) {
+        elementoTrocaPerfil.addEventListener('click', trocarPerfil);
+    }
+});
