@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', function() {
     var perfis = {
-        perfil1: { nome: "Barros Assessoria", imagem: "perfil1.png" },
+        perfil1: { nome: "ASJ Assessoria", imagem: "perfil1.png" },
         perfil2: { nome: "Pereira Assessoria", imagem: "perfil2.png" },
         perfil3: { nome: "Banco Master", imagem: "perfil3.png" },
         perfil4: { nome: "Banco Pine", imagem: "perfil4.png" }
