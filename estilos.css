@@ -71,6 +71,7 @@ input {
     font-family: 'Raleway';
     font-weight: 700;
     white-space: nowrap;
+    font-feature-settings: "tnum";
 }
 
 .linha1 {
