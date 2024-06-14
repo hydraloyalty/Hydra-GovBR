@@ -269,8 +269,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         var perfilSelecionado = perfis['perfil' + perfilAtual];
-        document.getElementById('a').src = perfilSelecionado.imagem;
-        document.getElementById('b').textContent = perfilSelecionado.nome;
+        document.getElementById('perfil-imagem').src = perfilSelecionado.imagem;
+        document.getElementById('perfil-nome').textContent = perfilSelecionado.nome;
     }
 
     var elementoTrocaPerfil = document.getElementById('trocaPerfil');
