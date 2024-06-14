@@ -205,6 +205,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Event listener para o switch-dependente-5
     switchDependente5.addEventListener('change', function () {
         if (this.checked) {
+
             card5linha2.style.display = 'block'; // Mostra LINHA 2
         } else {
             card5linha2.style.display = 'none'; // Esconde LINHA 2
