@@ -254,9 +254,8 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function() {
     var perfis = {
         perfil1: { nome: "ASJ Assessoria", imagem: "perfil1.png" },
-        perfil2: { nome: "Pereira Assessoria", imagem: "perfil2.png" },
-        perfil3: { nome: "Banco Master", imagem: "perfil3.png" },
-        perfil4: { nome: "Banco Pine", imagem: "perfil4.png" }
+        perfil2: { nome: "Banco BS2", imagem: "perfil2.png" },
+        perfil3: { nome: "Banco Original", imagem: "perfil3.png" }
     };
 
     var perfilAtual = 1;
@@ -269,8 +268,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         var perfilSelecionado = perfis['perfil' + perfilAtual];
-        document.getElementById('perfilImagem').src = perfilSelecionado.imagem;
-        document.getElementById('perfilNome').textContent = perfilSelecionado.nome;
+        document.getElementById('perfil-imagem').src = perfilSelecionado.imagem;
+        document.getElementById('perfil-nome').textContent = perfilSelecionado.nome;
     }
 
     var elementoTrocaPerfil = document.getElementById('trocaPerfil');
